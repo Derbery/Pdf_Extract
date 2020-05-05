@@ -1,17 +1,7 @@
-import PyPDF2
+import PyPDF2 as pyPdf
 
-
-def main():
-    pdfFile = "Data Structures and Algorithms Using Python.pdf"
-
-    pdfRead = PyPDF2.PdfFileReader(pdfFile)
-    page = pdfRead.getPage(0)
-    pageContent = page.extractText()
-
-    print(pageContent)
-
-
-
-if __name__ == "__main__":
-    main()
+file = "c:\\Users\\Derby\\Desktop\\pdf_extract\\Data Structures and Algorithms Using Python.pdf"
+pdf = pyPdf.PdfFileReader(open(file,"rb"))
+for page in pdf.pages:
+    print(page.extractText())
 
